@@ -17,6 +17,8 @@ type singleton struct {
 var instance *singleton
 
 func GetInstance() *singleton {
+	// create an instance of the singleton struct
+	// and ensure it is created only once through out the application lifecycle
 	if instance == nil {
 		instance = new(singleton)
 	}
@@ -24,6 +26,7 @@ func GetInstance() *singleton {
 	return instance
 }
 
+// use the same instantiated object to increment the count method
 func (s *singleton) AddOne() int {
 	s.count++
 	return s.count
